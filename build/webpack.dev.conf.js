@@ -19,4 +19,12 @@ config.plugins = [
     })
 ];
 
+//动态向入口文件中注入  webpack-hot-middleware/client
+var devClient = './build/dev-client';
+Object.keys(config.entry).forEach(function(name, i) {
+	var extras = [devClient];
+	config.entry[name] = extras.concat(config.entry[name]);
+	
+})
+
 module.exports = config;

@@ -1,5 +1,5 @@
 <template>
-	<div v-for="n in 10">div</div>
+	<div v-for="n in 5">div</div>
 </template>
 
 <script type="text/javascript">
@@ -14,6 +14,6 @@
 
 <style>
 	html{
-		background: green;
+		background: red;
 	}
 </style>

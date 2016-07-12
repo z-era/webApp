@@ -1,8 +1,14 @@
 var path = require('path');
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+var webpack = require('webpack');
 
 module.exports = {
-	entry: ['webpack-hot-middleware/client', path.resolve(__dirname, '../app/index/index.js')],
+	entry: { 
+		index: path.resolve(__dirname, '../app/index/index.js'),
+		vendors: [
+		   'Vue'
+		]
+	},
 	output: {
 		path: path.resolve(__dirname, '../output/static'),
 		publicPath: 'static/',
@@ -15,7 +21,8 @@ module.exports = {
 	module: {
 		loaders: [
 		    {test: /\.vue$/, loader: 'vue'},
-		    {test: /\.js$/, loader: 'babel?presets=es2015', exclude: /node_modules/ }
+		    {test: /\.js$/, loader: 'babel?presets=es2015', exclude: /node_modules/ }，
+		    {test: /\.(png|jpg|gif|svg)$/, loader: 'url', query:{limit: 10000, name: '[name].[ext]?[hash:7]'}}
 		]
 	},
 	plugins: [
@@ -23,6 +30,18 @@ module.exports = {
 	    	filename: '../index.html',
 	    	template: path.resolve(__dirname, '../app/index/index.html'),
 	    	inject: true                                                       //将js 文件加载到 body
+	    }),
+	    
+	    new webpack.DefinePlugin({
+	    	'process.env': {
+	    		NODE_ENV: '"production"'
+	    	}
+	    }),
+	    
+	    new webpack.optimize.UglifyJsPlugin({
+	    	compress: {
+	    		warnings: false
+	    	}
 	    })
 	]
 };
