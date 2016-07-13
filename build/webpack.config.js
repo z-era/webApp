@@ -21,8 +21,10 @@ module.exports = {
 	module: {
 		loaders: [
 		    {test: /\.vue$/, loader: 'vue'},
-		    {test: /\.js$/, loader: 'babel?presets=es2015', exclude: /node_modules/ }，
-		    {test: /\.(png|jpg|gif|svg)$/, loader: 'url', query:{limit: 10000, name: '[name].[ext]?[hash:7]'}}
+		    {test: /\.js$/, loader: 'babel?presets=es2015', exclude: /node_modules/ },
+		    {test: /\.css$/, loader: 'style!css'},
+		    {test: /\.(eot|svg|ttf|woff|woff2)$/, loader: 'file-loader'},
+		    {test: /\.(png|jpg|gif|svg)$/, loader: 'url', query: {limit: 10000, name: '[name].[ext]?[hash:7]'}}
 		]
 	},
 	plugins: [

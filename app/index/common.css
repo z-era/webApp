@@ -1,0 +1,21 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, form, button, input, textarea, th, td { margin:0; padding:0; } 
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; } 
+h1, h2, h3, h4, h5, h6{ font-size:100%; } 
+address, em, var { font-style:normal; } 
+ul, ol { list-style:none; } 
+a { text-decoration:none; } 
+a:hover { text-decoration:underline; } 
+img { border:0; } 
+button, input, select, textarea { font-size:100%; } 
+table { border-collapse:collapse; border-spacing:0; }
+
+body {
+	background-color: #ecedf1;
+}
+@font-face {
+	font-family: 'fontello';
+	src: url('../font/fontello.eot'); /*IE9*/
+	src: url('../font/fontello.woff') format('woff'),
+	     url('../font/fontello.ttf') format('truetype'),
+	     url('../font/fontello.svg#iconfont') format('svg');
+}
