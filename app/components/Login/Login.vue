@@ -4,14 +4,14 @@
 		<div class="user-login">
 		    <p id="hint-input">账号或密码错误</p>
 		    <label class="count-num">账号<input type="text" v-model="counter"><i @click.stop="emptying">&#xe803;</i></label>
-		    <label class="password">密码<input type="text" v-model="password"></label>
+		    <label class="password">密码<input type="password" v-model="password"></label>
 			<button @click.prevent="submit">登录</button>
 		</div>
 	</div>
 </template>
 
 <script>
-    import store from '../../store/store';
+    import action from '../../Vuex/actions/act-login';
 	export default {
 		name: 'Login',
 		data() {
@@ -20,13 +20,16 @@
 				password: ""
 			}
 		},
-		
 		methods: {
-			emptying() {
-				this.counter = ""
-			},
-			submit() {
-				
+			emptying: function() {
+				this.counter = "";
+			}
+		},
+		vuex: {
+			actions: {
+				submit: function() {
+					action({u: this.counter, p: this.password})
+				}
 			}
 		}
 	}
@@ -92,5 +95,6 @@
 		border: 0;
 		color: #fff;
 		font-size: 20px;
+		outline: none;
 	}
 </style>

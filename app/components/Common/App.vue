@@ -14,9 +14,12 @@
 </template>
 
 <script type="text/javascript">
-
+    import store from '../../Vuex/store'
+    export default {
+    	store
+    }
 </script>
-
+  
 <style>
 	.footer {
 		height: 120px;
