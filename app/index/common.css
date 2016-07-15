@@ -11,11 +11,12 @@ table { border-collapse:collapse; border-spacing:0; }
 
 body {
 	background-color: #ecedf1;
+	font-family: 'Microsoft YaHei'
 }
 @font-face {
-	font-family: 'fontello';
-	src: url('../font/fontello.eot'); /*IE9*/
-	src: url('../font/fontello.woff') format('woff'),
-	     url('../font/fontello.ttf') format('truetype'),
-	     url('../font/fontello.svg#iconfont') format('svg');
+	font-family: 'iconfont';
+	src: url('../font/iconfont.eot'); /*IE9*/
+	src: url('../font/iconfont.woff') format('woff'),
+	     url('../font/iconfont.ttf') format('truetype'),
+	     url('../font/iconfont.svg#iconfont') format('svg');
 }

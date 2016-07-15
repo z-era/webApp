@@ -1,9 +1,16 @@
 var express = require('express');
 var webpack = require('webpack');
 var config  = require('./webpack.dev.conf');
+var proxy   = require('express-http-proxy');
+var bodyParser = require('body-parser');
 
 //express 实例
 var app = express();
+
+// app.use(bodyParser.json({limit: '1mb'}))
+// app.use(bodyParser.urlencoded({
+// 	extended: true
+// }));
 
 //调用webpack， 把配置文件传进去
 var compiler = webpack(config);
@@ -34,12 +41,17 @@ compiler.plugin('compilation', function(compilation) {
 app.use(devMiddleware);
 app.use(hotMiddleware);
 
+
+app.use('/proxy', proxy('beta.uniweibo.com'));
+
+
 //监听8888 端口
-app.listen(8888, function(err) {
+app.listen(8080, function(err) {
+
 	if (err) {
 		console.log(err);
 		return;
 	}
-	console.log('Listen to: http:localhost:8888');
+	console.log('Listen to: http:localhost:8080');
 });
 

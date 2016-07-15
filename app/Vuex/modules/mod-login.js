@@ -1,12 +1,13 @@
-import { LOGIN_COUNTER, LOGIN_PASSWORD }  from '../mutation-types'
+import { CONTROL_LOGIN_ERROR}  from '../mutation-types'
 
 const state = {
-	counter: "",
-	password: ""
+	error: false
 }
 
 const mutations = {
-	
+	[CONTROL_LOGIN_ERROR] (state, status) {
+		state.error = status;
+	}
 }
 
 export default {

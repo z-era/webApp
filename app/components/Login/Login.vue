@@ -2,22 +2,22 @@
 	<div class="login">
 		<img class="login-logo" src="../../imgs/login.png">
 		<div class="user-login">
-		    <p id="hint-input">账号或密码错误</p>
-		    <label class="count-num">账号<input type="text" v-model="counter"><i @click.stop="emptying">&#xe803;</i></label>
+		    <p id="hint-input" v-show="error">账号或密码错误</p>
+		    <label class="count-num">账号<input type="text" v-model="counter"><i @click.stop="emptying">&#xe658;</i></label>
 		    <label class="password">密码<input type="password" v-model="password"></label>
-			<button @click.prevent="submit">登录</button>
+			<button @click.prevent="submit({'emailOrMobile': counter, 'passwd': password}, this.$router)">登录</button>
 		</div>
 	</div>
 </template>
 
 <script>
-    import action from '../../Vuex/actions/act-login';
+    import {loginIn, againInput} from '../../Vuex/actions/act-login';
 	export default {
 		name: 'Login',
 		data() {
 			return {
 				counter: "",
-				password: ""
+				password: "",
 			}
 		},
 		methods: {
@@ -26,19 +26,17 @@
 			}
 		},
 		vuex: {
+			getters: {
+			    error: state => state.modLogin.error
+			},
 			actions: {
-				submit: function() {
-					action({u: this.counter, p: this.password})
-				}
+				submit: loginIn,
 			}
 		}
 	}
 </script>
 
 <style>
-    .footer {
-    	display: none;
-    }
     .login {
     	text-align: center;
     }
@@ -55,7 +53,6 @@
 		color: #f9767f;
 		font-weight: 600;
 		padding-bottom: 8px;
-		display: none;
 	}
 	.count-num, .password {
 		display: inline-block;
@@ -81,8 +78,9 @@
 		top: 0px;
 		right: 20px;
 		color: #e4e8e8;
-		font-family: 'fontello';
+		font-family: 'iconfont';
 		font-style: normal;
+		font-size: 24px;
 	}
 	
 	.user-login button {

@@ -1,17 +1,29 @@
 import request from 'superagent'
 
-function loginIn(cp) {
-	request.post('http://beta.uniscrm.cn:8770/login')
-	       .set("Content-Type", "application/json" )
-	       .send(JSON.stringify(cp))
-	       .end(function(res) {
-	       	    if (res.ok) {
-	       	    	console.log(res);
+const UrlRoot = "http://beta.uniweibo.com"
+
+export const loginIn = function ({dispatch}, cp, router) {
+	// request.post(UrlRoot + '/login')
+	request.post('/proxy/user/login')
+	       .type('form')
+	       .send(cp)
+	       .end(function(err, res) {
+	       	    if (err) {
+	       	    	console.log(err);
+	       	    	dispatch("CONTROL_LOGIN_ERROR", true);
 	       	    } else {
-	       	    	console.log(res);
+	       	    	if(res.body.error_info === "OK") {
+	       	            window.sessionStorage.setItem('result', res.body.error_info);
+	       	            router.go('/salesOpportunities');
+	                } else {
+	                	dispatch("CONTROL_LOGIN_ERROR", true);
+	                	console.log(res.body.error_info);
+	                }
 	       	    }
 	       });
-	     
 }
 
-export default loginIn;
+export const againInput = function ({dispatch}) {
+	dispatch("CONTROL_LOGIN_AGAIN")
+}
+

@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 
 //导入各个模块的初始状态和 mutations
-import modLogin from './actions/act-login'
+import modLogin from './modules/mod-login'
 
 Vue.use(Vuex);
 
