@@ -9,16 +9,17 @@
 					<p> {{ phone }} </p>
 				</div>
 			</div>
-			<table class="single-msg">
-				<tr>
-					<th>指派时间: </th>
-					<td> {{ time }} </td>
-				</tr>
-				<tr>
-					<th>描述: </th>
-					<td> {{ description }} </td>
-				</tr>
-			</table>
+			<ul class="single-msg">
+				<li>
+					<span class="single-msg-l"> 指派时间: </span>
+					<span class="single-msg-r">{{ time }}</span>
+				</li>
+				<li>
+					<span class="single-msg-l"> 描述: </span>
+					<span class="single-msg-r" :style="{width: width}">{{ description | limitNum }}</span>
+				</li>
+			</ul>
+			
 		</div>
 		<every-little little="销售状态:" :little-s="status" @click="selectStatus" color="rgba(247, 51, 97, 1)"></every-little>
 		<every-little little="成交情况:" :little-s="titleStatus"></every-little>
@@ -44,6 +45,7 @@
 				cStatus: '客户还有疑虑，将进一步跟进',
 				titleStatus: "未成交",
 				status: "新指派",
+				width: (window.innerWidth - 112) + 'px'
 			}
 		},
 
@@ -105,11 +107,6 @@
 	/*头部信息栏样式-------------------------------------------------------------------*/
 	.single-msg {
 		clear: both;
-	}
-	.detail-head .single-msg tr td {
-		line-height: 16px;
-		font-size: 14px;
-		font-weight: normal;
 	}
 	
 	/*客户跟进记录======================================================================*/

@@ -16,16 +16,20 @@
 <style>
 	#title {
 		box-sizing: border-box;
-		padding: 8px 0 10px 15px;
+		height: 44px;
+		line-height: 44px;
 		background-color: #fff;
 		text-align: center;
-		font-size: 22px;
+		font-size: 20px;
+		position: relative;
 	}
 	#title i{
+		position: absolute;
+		left: 15px;
+		top: 0%;
 		color: rgba(31, 183, 236, 1);
 		-webkit-transform:rotateZ(90deg);
 		transform: rotateZ(90deg);
-	    float: left;
 	    font-size: 20px;
 	}
 </style>

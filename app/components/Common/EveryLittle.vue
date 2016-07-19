@@ -11,8 +11,8 @@
 </script>
 <style>
 	.every-little {
-		height: 46px;
-		line-height: 46px;
+		height: 44px;
+		line-height: 44px;
 	    background-color: #fff;
 	    font-size: 16px;
 	    margin-bottom: 10px;

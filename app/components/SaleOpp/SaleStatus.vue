@@ -49,7 +49,7 @@
 	.sale-status li {
 		height: 45px;
 		line-height: 45px;
-		border-bottom: 1px solid #c0c0c0;
+		border-bottom: 1px solid #ddd;
 	}
 	.sale-status li i {
 		color: rgba(31, 183, 236, 1);
