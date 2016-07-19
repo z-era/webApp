@@ -9,9 +9,9 @@ img { border:0; }
 button, input, select, textarea { font-size:100%; } 
 table { border-collapse:collapse; border-spacing:0; }
 
-body {
+
+html {
 	background-color: #ecedf1;
-	font-family: 'Microsoft YaHei'
 }
 @font-face {
 	font-family: 'iconfont';
@@ -19,4 +19,9 @@ body {
 	src: url('../font/iconfont.woff') format('woff'),
 	     url('../font/iconfont.ttf') format('truetype'),
 	     url('../font/iconfont.svg#iconfont') format('svg');
+}
+
+i {
+	font-family: 'iconfont';
+	font-style: normal;
 }

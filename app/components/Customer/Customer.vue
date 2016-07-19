@@ -1,7 +1,9 @@
 <template>
-	<div class="customers">
-		<div class="customers">
-			
-		</div>
-	</div>
+	<router-view></router-view>
 </template>
+
+<script>
+	export default{
+		
+	}
+</script>
