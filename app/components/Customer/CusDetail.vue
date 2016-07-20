@@ -91,6 +91,7 @@
 		background-color: #fff;
 		margin-bottom: 10px;
 		padding: 8px 0;
+		font-size: 17px;
 	}
 	.some-tags li {
 		height: 30px;
@@ -102,6 +103,7 @@
 		text-align: right;
 		color: rgba(151, 150, 156, 1);
 		padding-right: 10px;
+		font-size: 16px;
 	}
 	.sale-situation {
 		padding-left: 15px;

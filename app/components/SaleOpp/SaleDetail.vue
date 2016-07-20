@@ -27,7 +27,7 @@
 			<time> {{ cTime }}</time>
 			<p> {{ cStatus }}</p>
 		</div>
-		<button  class="add-client-recprd">+ 添加跟进记录</button>
+		<button  class="add-client-record">+ 添加跟进记录</button>
 	</div>
 </template>
 
@@ -91,7 +91,8 @@
 	}
 	.detail-logo-msg h3 {
 		margin-top: 4px;
-		font-size: 20px;
+		font-size: 18px;
+		font-weight: bold;
 	}
 	.detail-logo-msg h3 i {
 		font-family: 'iconfont';
@@ -100,7 +101,7 @@
 	}
 	.detail-logo-msg p {
 		margin-top: 8px;
-		font-size: 16px;
+		font-size: 17px;
 	    color:rgba(31, 183, 236, 1);
 	}
 	
@@ -116,21 +117,21 @@
 		padding: 12px 15px;
 	}
     .client-status time{
-    	font-size: 14px;
+    	font-size: 16px;
     	color: rgba(151, 150, 156, 1);
     }
     .client-status p {
     	padding-top:4px;
-    	font-size: 16px;
+    	font-size: 17px;
     }
     
-    .add-client-recprd {
+    .add-client-record {
         width: 100%;
     	height: 44px;
     	line-height: 44px;
     	border: none;
     	background-color: #fff;
-    	font-size: 16px;
+    	font-size: 17px;
         color: rgba(31, 183, 236, 1);
         outline: none;
     }

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --display-modules --display-chunks --config /build/webpack.prod.conf.js",
-    "dev": "node E:\\project\\unidsp_move\\build\\dev-server.js"
+    "dev": "node F:\\projects\\webApp\\build\\dev-server.js"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",

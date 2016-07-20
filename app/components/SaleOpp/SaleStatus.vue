@@ -43,13 +43,25 @@
 	.sale-status {
 		margin-top: 10px;
 		padding-left: 15px;
-		font-size: 16px;
+		font-size: 17px;
 	    background-color: #fff;
 	}
 	.sale-status li {
 		height: 45px;
 		line-height: 45px;
-		border-bottom: 1px solid #ddd;
+		position:relative;
+	}
+	.sale-status li:after {
+	    content: '';
+	    position: absolute;
+        left: 0;
+        background-color: #ddd;
+        width: 100%;
+        height: 1px;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
 	}
 	.sale-status li i {
 		color: rgba(31, 183, 236, 1);
@@ -58,6 +70,7 @@
 		font-weight: bold;
 	}
 	.sale-status li:last-child {
-		border-bottom: none;
+	    border: none;
+	    box-shadow: none;
 	}
 </style>

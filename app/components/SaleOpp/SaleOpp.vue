@@ -12,7 +12,7 @@
 				</li>
 				<li>
 					<span class="single-msg-l"> 销售状态: </span>
-					<span class="single-msg-r bold-font" :style="{color: statusColors[$index]}">{{ opp.status }} </span>
+					<span class="single-msg-r" :style="{color: statusColors[$index]}">{{ opp.status }} </span>
 				</li>
 				<li>
 					<span class="single-msg-l"> 描述: </span>
@@ -126,18 +126,18 @@
 		padding: 10px 15px;
 		background-color: #fff;
 		margin-bottom: 10px;
-		font-size: 18px;
 	}
 	.single-h {
 		height: 26px;
 		line-height: 26px;
 		color: rgba(3, 3, 3, 1);
+		font-size: 18px;
 		font-weight: bold;
 		margin-bottom: 6px;
 	}
 	.single-h span {
 		float: right;
-		font-size: 12px;
+		font-size: 15px;
 		font-weight: normal;
 	}
 	.single-h span i {
@@ -157,10 +157,8 @@
 		vertical-align: top;
 		text-align: right;
 	}
-	.bold-font{
-		font-weight: bold;
-	}
 	.single-msg-r {
+	    font-size: 17px;
 		display: inline-block;
 	}
 	

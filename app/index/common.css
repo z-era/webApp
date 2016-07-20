@@ -12,6 +12,7 @@ table { border-collapse:collapse; border-spacing:0; }
 
 html {
 	background-color: #ecedf1;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 @font-face {
 	font-family: 'iconfont';

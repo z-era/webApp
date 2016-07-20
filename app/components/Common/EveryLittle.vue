@@ -14,12 +14,15 @@
 		height: 44px;
 		line-height: 44px;
 	    background-color: #fff;
-	    font-size: 16px;
 	    margin-bottom: 10px;
 	    padding-left: 15px;
 	}
 	.every-little .little-t {
+	    font-size: 16px;
 		color: rgba(151, 150, 156, 1);
+	}
+	.every-little .little-s {
+	    font-size: 17px;
 	}
 	.every-little i {
 		float: right;
