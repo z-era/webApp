@@ -1,10 +1,21 @@
 <template>
     <div class="sale-opp">
         <div class="sale-header">
-        	<h3><i class="func">&#xe790;</i><span>销售机会<i>&#xe661;</i></span><i class="update" :class="{updating: update}" @touchstart="updatePage">&#xe782;</i></h3>
+        	<h3><i class="func">&#xe790;</i><span>销售机会<i @touchstart="selectingMsg">&#xe661;</i></span><i class="update" :class="{updating: update}" @touchstart="updatePage">&#xe782;</i></h3>
+        	<div class="selectingStatuses" v-if="select">
+        		<ul class="selectingStatus">
+        			<li>所有</li>
+        			<li>未读</li>
+        			<li>待处理</li>
+        			<li>处理中</li>
+        			<li>关闭</li>
+        			<li>未成交</li>
+        			<li>已成交</li>
+        		</ul>
+        	</div>
         </div>
 		<div class="single" @touchstart="intoDetail(opp.id)" v-for="opp in opps">
-			<h3 class="single-h">{{ opp.title }} <span>{{ opp.titleStatus }}<i>&#xe6a3;</i></span></h3>
+			<h3 class="single-h">{{ opp.title }} <span v-p-status="pStatus">{{ opp.titleStatus }}<i>&#xe6a3;</i></span></h3>
 			<ul class="single-msg">
 				<li>
 					<span class="single-msg-l"> 指派时间: </span>
@@ -12,7 +23,7 @@
 				</li>
 				<li>
 					<span class="single-msg-l"> 销售状态: </span>
-					<span class="single-msg-r" :style="{color: statusColors[$index]}">{{ opp.status }} </span>
+					<span class="single-msg-r" v-s-status="sStatus">{{ opp.status }} </span>
 				</li>
 				<li>
 					<span class="single-msg-l"> 描述: </span>
@@ -24,14 +35,6 @@
 </template>
 
 <script>
-    var statusColors = {
-    	"新指派": "rgba(247, 51, 97, 1)",
-    	"待处理": "rgba(245, 166, 35, 1)",
-    	"初次接洽": "rgba(74, 144, 226, 1)",
-    	"需求确定": "rgba(74, 144, 226, 1)",
-    	"方案报价": "rgba(74, 144, 226, 1)",
-    	"关闭": "rgba(151, 150, 156, 1)"
-    };
     
 	export default {
 		data() {
@@ -63,18 +66,14 @@
 				}
 				],
 				update: false,
-				width: (window.innerWidth - 112) + 'px'
+				pStatus: 0,            //已成交，未成交状态     暂用
+				sStatus: 0,            //销售状态               暂用
+				select: false          //是否显示状态筛选栏
 			}
 		},
 		computed: {
-			
-			//状态颜色确定           /填充的时候进行数据处理更改映射只需要保存一个颜色数组
-			statusColors() {
-				var colors = [];
-				this.opps.forEach(function(opp) {
-					colors.push(statusColors[opp.status]);
-				})
-				return colors;
+			width() {
+				return (window.innerWidth - 112) + 'px';
 			}
 		},
 		methods: {
@@ -87,6 +86,9 @@
 			updatePage() {
 				this.update = true;
 				window.location.reload();
+			},
+			selectingMsg() {
+                this.select = this.select ? false: true;
 			}
 		}
 	}
@@ -120,7 +122,34 @@
 		float: right;
 		padding-right: 15px;
 	}
-	
+
+	/*状态选择样式 -------------------------------------------------------------------*/
+	.selectingStatuses {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 44px;
+		background-color: rgba(0,0,0, 0.3);
+	}
+	.selectingStatus {
+		width: 44%;
+		margin: 0 auto;
+		font-size: 17px;
+		background-color: rgb(248, 248, 248);
+	}
+	.selectingStatus li {
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+	}
+	.selectingStatus li:nth-child(2), .selectingStatus li:nth-child(5) {
+		border-bottom: 1px solid #ddd;
+	}
+
+	.activeStatus {
+		color: rgba(48, 188, 237, 1);
+	}
 	/*内容样式=======================================================================*/
 	.single {
 		padding: 10px 15px;
@@ -136,6 +165,7 @@
 		margin-bottom: 6px;
 	}
 	.single-h span {
+		color: rgba(155, 155, 155, 1);
 		float: right;
 		font-size: 15px;
 		font-weight: normal;

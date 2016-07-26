@@ -12,11 +12,23 @@ import SaleStatus from '../components/SaleOpp/SaleStatus'
 
 import Customer from '../components/Customer/Customer'
 import CusDetail from '../components/Customer/CusDetail'
-import Individual from '../components/Customer/Individual'
 
 
+/*--------------------------------------------
+|过滤器
+-----------------------------------------------
+*/
 import {limitNum} from '../filter/filter';
 Vue.filter('limitNum', limitNum);
+
+/*--------------------------------------------
+|自定义指令
+-----------------------------------------------
+*/
+import {progressStatus, saleStatusColor} from '../directive/directive';
+Vue.directive('p-status', progressStatus);
+Vue.directive('s-status', saleStatusColor);
+
 
 
 //使用router plugin
@@ -47,9 +59,6 @@ router.map({
 		subRoutes: {
 			'/': {
 			    component: CusDetail	
-			},
-			'/individual': {
-				component: Individual
 			}
 		}
 	}
